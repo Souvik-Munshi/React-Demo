@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import Title from "./Title";
 import PhotoWall from "./PhotoWall";
-import AddPhoto from "./AddPhoto";
 import {Routes, Route} from "react-router-dom";
 import {createBrowserHistory} from 'history';
+import AddPhoto from "./AddPhoto";
 
 export class Main extends Component {
     history = createBrowserHistory();
@@ -61,8 +61,7 @@ export class Main extends Component {
             <Title heading={"Photo Wall"}/>
             <Routes>
                 <Route path="/" element={<PhotoWall data={this.state.posts} onRemovePhoto={this.removePhoto}/>}/>
-                <Route path="/AddPhoto" element=
-                    <AddPhoto onAddPhoto={this.addPhoto} history={this.history}/>/>
+                <Route path="/AddPhoto" element={<AddPhoto onAddPhoto={this.addPhoto} history={this.history}/>}/>
             </Routes>
 
         </div>
