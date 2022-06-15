@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import {Main} from "./Component/Main";
 import './Styles/styleSheet.css';
 import {BrowserRouter} from "react-router-dom";
+import {createStore} from "redux";
+import rootReducer from './Redux/Reducer';
+import {Provider} from "react-redux";
+import App from "./Component/App";
+
+let store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<BrowserRouter><Main/>></BrowserRouter>);
+root.render(<Provider store={store}><BrowserRouter><App/>></BrowserRouter></Provider>);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

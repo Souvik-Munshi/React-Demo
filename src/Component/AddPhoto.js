@@ -18,12 +18,12 @@ function handleSubmit(event, props) {
     const link = event.target.elements.link.value;
     const Desc = event.target.elements.description.value;
     const postBody = {
-        id: 0,
+        id: Number(new Date()),
         description: Desc,
         imageLink: link
     }
     if (link && Desc) {
-        props.onAddPhoto(postBody);
+        props.addPost(postBody);
         props.history.back();
     }
 }
